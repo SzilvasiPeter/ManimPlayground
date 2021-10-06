@@ -1,0 +1,2 @@
+manim==0.11.0
+manim_physics==0.2.3

@@ -1,4 +1,3 @@
-from typing_extensions import runtime
 from manim import *
 from manim_physics import * # for physics simulation
 
