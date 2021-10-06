@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "python.pythonPath": "venv/Scripts/python.exe"
+    },
+    "terminal.integrated.env.windows": {
+        "PATH": "${workspaceFolder}\\ffmpeg\\bin\\"
+    }
+}
