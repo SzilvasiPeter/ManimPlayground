@@ -4,7 +4,31 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import collections
 
-def plot_mesh(x, y):
+def plot_2dcost_m(x, y):
+    m = np.linspace(0.85, 1.35, 10)
+    b = -3.6303
+
+    cost_m = []
+    for i in range(len(m)):
+        cost_m.append((1/len(x)) * sum(((m[i] * x + b) - y) ** 2))
+
+    print(cost_m)
+    plt.plot(m, cost_m)
+    plt.show()
+
+def plot_2dcost_b(x, y):
+    m = 1.1664
+    b = np.linspace(-5, -2, 10)
+
+    cost_m = []
+    for i in range(len(m)):
+        cost_m.append((1/len(x)) * sum(((m[i] * x + b) - y) ** 2))
+
+    print(cost_m)
+    plt.plot(m, cost_m)
+    plt.show()
+
+def plot_3dcost(x, y):
     Point = collections.namedtuple('Point', ['x', 'y'])
 
     points = [Point(x, y) for x, y in zip(x, y)]
@@ -12,8 +36,8 @@ def plot_mesh(x, y):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
-    ms = np.linspace(1.1664-1, 1.1664+1, 10)
-    bs = np.linspace(-3.6303-1, -3.6303+1, 10)
+    ms = np.linspace(1.1664-0.5, 1.1664+0.5, 10)
+    bs = np.linspace(-3.6303-2, -3.6303+2, 10)
 
     M, B = np.meshgrid(ms, bs)
     zs = np.array([error(mp, bp, points) 
@@ -38,16 +62,6 @@ data = pd.read_csv('ex1data1.txt', names=['X', 'Y'])
 x = data.iloc[:,0]
 y = data.iloc[:,1]
 
-plot_mesh(x, y)
-# linspace = np.linspace(0, 30, 100)
-# m = 1.164
-# b = -20
-# lineX = m*linspace + b
-
-# totalError = (1/len(x)) * sum(((m * x + b) - y) ** 2)
-# print(totalError)
-
-# plt.scatter(x, y)
-# plt.plot(linspace, lineX)
-# plt.show()
-
+plot_3dcost(x, y)
+plot_2dcost_m(x, y)
+plot_2dcost_b(x, y)
