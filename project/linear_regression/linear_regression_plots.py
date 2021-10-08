@@ -79,4 +79,4 @@ y = data.iloc[:,1]
 # plot_2dcost_m(x, y)
 # plot_2dcost_b(x, y)
 # plot_3dcost(x, y)
-#plot_cost_contour(x, y)
+# plot_cost_contour(x, y)
