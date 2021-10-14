@@ -41,10 +41,6 @@ def plot_3dcost(x, y):
 
 def plot_cost_contour(x, y):
     M, B, Z = calculate_3dcost(x, y)
-    
-    # plt.figure()
-    # contour = plt.contour(M, B, Z, 20, cmap='RdGy')
-    # plt.clabel(contour, inline=1, fontsize=10)
 
     fig,ax=plt.subplots(1,1)
     cp = ax.contourf(M, B, Z, 40)
