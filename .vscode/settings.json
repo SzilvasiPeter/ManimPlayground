@@ -3,6 +3,6 @@
         "python.pythonPath": "venv/Scripts/python.exe"
     },
     "terminal.integrated.env.windows": {
-        "PATH": "${workspaceFolder}\\ffmpeg\\bin\\"
+        "PATH": "${workspaceFolder}\\ffmpeg\\bin\\;C:\\Tools\\TinyTeX\\bin\\win32\\"
     }
 }
