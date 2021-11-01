@@ -21,5 +21,11 @@ class LinearRegression(Scene):
         x_label = grid.get_x_axis_label("x")
         grid_labels = VGroup(x_label, y_label)
 
+        # Draw a random Line.
+        reg_line = Line(np.random.randn(3), np.random.randn(3))
+        reg_line.set_length(7)
+        reg_line.set_color(RED)
+
         self.add(grid, grid_labels)
+        self.add(reg_line)
 
