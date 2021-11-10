@@ -31,6 +31,7 @@ class LinearRegression(Scene):
         reg_line = Line(np.random.randn(3), np.random.randn(3))
         reg_line.set_length(20)
         reg_line.set_color(RED)
+        reg_line.align_to(ORIGIN)
 
         # Draw the best fit Line.
         x_all = 0.0
@@ -52,7 +53,11 @@ class LinearRegression(Scene):
         alpha_coeff = y_mean - (b_coeff*x_mean)
 
         fitted_line = Line(np.array([0, 0+alpha_coeff, 0]), np.array([5, 5*b_coeff + alpha_coeff, 0]))
+        fitted_line.set_length(20)
+        fitted_line.set_color(GREEN)
+        fitted_line.align_to(ORIGIN)
 
         self.add(grid, grid_labels)
-        self.add(reg_line)
-        self.add(fitted_line)
+        self.play(Create(reg_line))
+        self.play(Transform(reg_line, fitted_line), run_time = 3)
+        self.wait(1)
